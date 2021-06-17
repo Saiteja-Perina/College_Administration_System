@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block title %}
+	<title>Mark Attendance</title>
+  {% endblock %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;
+           background-color: lightyellow;}
+      p {
+         font-size:50px;
+         color: red;
+        }
+      button {
+     background-color: #4CAF50;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+    }
+    .dark{
+          font-size:20px;
+          background:black;
+          color:white;
+        }
+    .cd{
+          font-size: 20px;
+          color: red;
+        }
+
+    </style>
+</head>
+<body>
+{% block content %}
+<p class="text-center">Mark Attendance</p><br>
+<div class="container">
+<form action="{% url 'markattend' data.1.sub_br_id_id %}" method="POST">
+{% csrf_token %}
+<table class="table table-bordered table-striped">
+  <thead class="dark">
+    <tr>
+      <th scope="col">Student_Id</th>
+      <th scope="col">Present</th>
+      <th scope="col">Absent</th>
+    </tr>
+  </thead>
+  <tbody class='cd'>
+  	{% for i in data %}
+    <tr>
+      <th scope="row">{{i.stud_id_id}}</th>
+      <td>
+        <label class="radio-inline">
+        <input type="radio" name={{i.stud_id_id}} value="Present" checked>
+        Present
+        </label>
+      </td>
+      <td>
+        <label class="radio-inline">
+        <input type="radio" name={{i.stud_id_id}} value="Absent">
+        Absent
+        </label>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+<button type="submit">Submit</button>
+</form>
+</div>
+</body>
+</html>

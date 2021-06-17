@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Faculty Duties</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+     body {font-family: Arial, Helvetica, sans-serif;
+           background-color: lightblue;}
+     p {
+         font-size:50px;
+         color: red;
+        }
+     h1{ font-family: American Typewriter, serif }
+
+     u{ color: blue;}
+     .row.content {height: 450px}
+    @media screen and (max-width: 767px) {
+      .row.content {height:auto;} 
+    }
+     .button {
+      background:#fdb531;
+      box-shadow:20px 20px 0 rgba(0,0,0,2);
+      display:inline-block;
+      font-size:2em;
+      padding:.5em 2em;
+      text-decoration:none;
+      width:100%;
+      padding-top: 150px;
+      padding-bottom: 150px;
+      border-top: 50 px;
+      font-family: URW Chancery L, cursive;
+    }
+
+    .button:hover {
+      box-shadow: 0 0 0 ;
+    }
+
+    .ellipse{
+     background: #9fb325;
+     border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <p class="text-center"> Welcome {{data.fac_user_name}}</p><br>
+  <div class="container">
+  <a class="btn navbar-btn btn-danger navbar-right pull-right" role="button" href="{% url 'center' %}">Logout</a>
+  </div>
+  <h1 class="text-center"> <u>Duties</u> </h1>
+  <div class="container-fluid text-center">    
+       <div class="row content">
+         <div class="col-sm-2">
+         </div>
+         <div class="col-sm-4 text-center"> 
+           <div class="container-fluid">
+           	<a class="button ellipse" href="{% url 'choose' data.faculty_id %}">
+           		<i>Attendance Marking</i>
+            </a>
+           </div>
+         </div>
+         <div class="col-sm-4 text-center"> 
+           <div class="container-fluid">
+           	 <a class="button ellipse" href="{% url 'choose1' data.faculty_id %}">
+           	 	<i>Marks Entering</i>
+             </a>
+           </div>
+         </div>
+         <div class="col-sm-2">
+         </div>
+       </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title%}
+	<title>Faculty Login</title>
+	{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    	footer {
+  	  position: fixed;
+  	  left: 0;
+      bottom: 0; 
+      width: 100%;
+      background-color: #fedcba;
+      padding: 25px;
+    }
+     .jumbotron {
+      background-color: #abcdef;
+      margin-bottom: 50px;
+    }
+    body {font-family: Arial, Helvetica, sans-serif;}
+    form {border: 3px solid #f1f1f1;}
+
+    input[type=text], input[type=password] {
+     width: 100%;
+     padding: 12px 20px;
+     display: inline-block;
+     border: 1px solid #ccc;
+     box-sizing: border-box;
+    }
+    button {
+     background-color: #4CAF50;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+    }
+
+    button:hover {
+     opacity: 0.8;
+    }
+    .container {
+     padding: 16px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+      <div class="container text-center">
+        <h1>College Name</h1>      
+        <p>Mission, Vission & Values</p>
+      </div>
+    </div>
+    {%  block content %}
+    <h1 class="text-center">Faculty Login</h1>
+    <form action="{% url 'faclog' %}" method="POST">
+    {% endblock %}
+        {% csrf_token %}
+    	<div class="container">
+         <label for="uname"><b>Username</b></label>
+         <input type="text" placeholder="Enter Username" name="uname" required>
+
+         <label for="psw"><b>Password</b></label>
+         <input type="password" placeholder="Enter Password" name="psw" required>
+        
+         <button type="submit">Login</button>
+
+        </div>
+    </form>
+
+    <footer class="container-fluid text-center">
+        Contact Us: 999999999
+    </footer>
+</body>
+</html>

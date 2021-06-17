@@ -1,0 +1,7 @@
+{% extends 'choose.html' %}
+{% block cd %}
+<p class="text-center">Choose the subject to enter the marks</p><br>
+{% endblock %}
+{% block content %}
+<li class="vk" role="presentation"><a role="menuitem" href="{% url 'entermarks' i.sub_br_id_id %}">{{i.sub_br_id_id}}</a></li>
+{% endblock %}

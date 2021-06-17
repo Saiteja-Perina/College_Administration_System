@@ -1,0 +1,28 @@
+{% extends 'markattend.html' %}
+{% block title %}
+<title>Enter Marks</title>
+{% endblock %}
+{% block content %}
+<p class="text-center">Enter Marks of {{data.1.sub_br_id_id}} </p><br>
+<div class="container">
+<form action="{% url 'entermarks' data.1.sub_br_id_id %}" method="POST">
+{% csrf_token %}
+<table class="table table-bordered table-striped">
+  <thead class="dark">
+    <tr>
+      <th scope="col">Student_Id</th>
+      <th scope="col">Marks Gained</th>
+    </tr>
+  </thead>
+  <tbody class='cd'>
+  	{% for i in data %}
+    <tr>
+      <th scope="row">{{i.stud_id_id}}</th>
+      <td>
+        <input type="number" min="0" max={{i.sub_tot_marks}} step="1" name={{i.stud_id_id}} value={{i.sub_secured}} />
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

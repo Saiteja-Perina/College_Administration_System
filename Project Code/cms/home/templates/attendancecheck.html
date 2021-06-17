@@ -1,0 +1,27 @@
+{% extends 'feecheck.html' %}
+{% block title %}
+<title>Attendance Check</title>
+{% endblock %}
+{% block content %}
+<p class="text-center">Attendance</p><br>
+<div class="container">
+<table class="table table-bordered">
+  <thead class="dark">
+    <tr>
+      <th scope="col">Subject_Id</th>
+      <th scope="col">Total_Periods</th>
+      <th scope="col">No. of_Periods_Present</th>
+    </tr>
+  </thead>
+  <tbody class='cd'>
+  	{% for i in data %}
+    <tr>
+      <th scope="row">{{i.sub_br_id_id}}</th>
+      <td>{{i.sub_tot_attendance}}</td>
+      <td>{{i.sub_tot_present}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
